@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>How to debug NS3 in QTcreator · GitBook</title>
+        <title>How to configure NS3 in QTcreator · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="How to configure NS3 in QTcreator.html" />
     
-    
-    <link rel="prev" href="./" />
+    <link rel="prev" href="How-to-debug-NS3-in-QTcreator.html" />
     
 
     </head>
@@ -116,9 +114,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="How to debug NS3 in QTcreator.html">
+        <li class="chapter " data-level="1.2.1" data-path="How-to-debug-NS3-in-QTcreator.html">
             
-                <a href="How to debug NS3 in QTcreator.html">
+                <a href="How-to-debug-NS3-in-QTcreator.html">
             
                     
                     How to debug NS3 in QTcreator
@@ -129,9 +127,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="How to configure NS3 in QTcreator.html">
+        <li class="chapter active" data-level="1.2.2" data-path="How-to-configure-NS3-in-QTcreator.html">
             
-                <a href="How to configure NS3 in QTcreator.html">
+                <a href="How-to-configure-NS3-in-QTcreator.html">
             
                     
                     How to configure NS3 in QTcreator
@@ -177,7 +175,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >How to debug NS3 in QTcreator</a>
+        <a href=".." >How to configure NS3 in QTcreator</a>
     </h1>
 </div>
 
@@ -192,15 +190,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="step-1-dynamic-loader">step 1 dynamic loader</h1>
-<p><code>sudo gedit /etc/ld.so.conf</code></p>
-<p>add the <code>&lt;path&gt;/build</code> to the end of the file</p>
-<p><code>sudo ldconfig</code></p>
-<p>ldconfig creates the necessary links and cache to the most recent shared libraries found in the directories specified on the command line, in the file /etc/ld.so.conf, and in the trusted directories,/lib and /usr/lib</p>
-<h1 id="step-2-debug--a-waf-built-ns-3-application">step 2 debug  a &quot;waf&quot; built ns-3 application</h1>
-<p>In qtcreator, first set click Projects on the left and then under Targets and Desktop select Run. </p>
-<p>Under Run Configuration, set Executable to <code>&lt;path&gt;/build/XXX/ns3-cppname-debug</code></p>
-<p>Use Debug-&gt;Start Debugging-&gt;Start Debugging.</p>
+                                <p><strong>Step 1 Importing project</strong></p>
+<p><strong>Step 2 Configuring project</strong></p>
+<p>   Click Projects on the left.</p>
+<p>   <strong>Under Build Settings</strong></p>
+<p>   Remove &#x201C;make all&#x201D; under <strong>Build</strong> Steps, and click Add Build Step-&gt;Custom Process Step  </p>
+<blockquote>
+<p>Command: should be &quot;./waf&quot;
+Command arguments: &quot;build&quot;<br>Working directory: default  </p>
+</blockquote>
+<p>   Remove &#x201C;make clean&#x201D; under <strong>Clean</strong> Steps, and click Add Clean Step-&gt;Custom Process Step  </p>
+<blockquote>
+<p>Command: should be &quot;./waf&quot;<br>Command arguments: &quot;clean&quot;<br>Working directory: default </p>
+</blockquote>
+<p>  <strong>Under Run Settings</strong></p>
+<blockquote>
+<p>Executable:  &quot;./build/examples/tutorial/ns3-dev-first-debug&quot; or any executable you want to run and debug</p>
+</blockquote>
+<p>   If you set it to &quot;./build/examples/tutorial/ns3-dev-first-debug&quot; make sure you used &quot;--enable-examples&quot; option in &quot;./waf configure&quot; prior to running the code     </p>
+<blockquote>
+<p>Command arguments: blank<br>Working directory: default</p>
+</blockquote>
+<p><a href="https://www.nsnam.org/wiki/HOWTO_configure_QtCreator_with_ns-3/" target="_blank">reference</a> <strong>chaining QtCreator to waf</strong>  </p>
 
                                 
                                 </section>
@@ -228,14 +239,10 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Chapter 1">
+                <a href="How-to-debug-NS3-in-QTcreator.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: How to debug NS3 in QTcreator">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="How to configure NS3 in QTcreator.html" class="navigation navigation-next " aria-label="Next page: How to configure NS3 in QTcreator">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -244,7 +251,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"How to debug NS3 in QTcreator","level":"1.2.1","depth":2,"next":{"title":"How to configure NS3 in QTcreator","level":"1.2.2","depth":2,"path":"chapter1/How to configure NS3 in QTcreator.md","ref":"chapter1/How to configure NS3 in QTcreator.md","articles":[]},"previous":{"title":"Chapter 1","level":"1.2","depth":1,"path":"chapter1/README.md","ref":"chapter1/README.md","articles":[{"title":"How to debug NS3 in QTcreator","level":"1.2.1","depth":2,"path":"chapter1/How to debug NS3 in QTcreator.md","ref":"chapter1/How to debug NS3 in QTcreator.md","articles":[]},{"title":"How to configure NS3 in QTcreator","level":"1.2.2","depth":2,"path":"chapter1/How to configure NS3 in QTcreator.md","ref":"chapter1/How to configure NS3 in QTcreator.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/How to debug NS3 in QTcreator.md","mtime":"2019-05-09T08:17:40.764Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-09T08:22:40.343Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"How to configure NS3 in QTcreator","level":"1.2.2","depth":2,"previous":{"title":"How to debug NS3 in QTcreator","level":"1.2.1","depth":2,"path":"chapter1/How-to-debug-NS3-in-QTcreator.md","ref":"chapter1/How-to-debug-NS3-in-QTcreator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/How-to-configure-NS3-in-QTcreator.md","mtime":"2019-05-09T08:55:15.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-09T08:55:47.171Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
