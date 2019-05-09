@@ -2,9 +2,11 @@
 
 ## How to use gitbook locally
 
-`npm install gitbook-cli -g`
+```
+npm install gitbook-cli -g
 
-`gitbook init`
+gitbook init
 
-`gitbook serve`
+gitbook serve
+```
 
