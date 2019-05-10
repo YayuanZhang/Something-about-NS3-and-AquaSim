@@ -10,3 +10,9 @@ gitbook init
 gitbook serve
 ```
 
+## Related
+
+[NS3 documentation](https://www.nsnam.org/doxygen/index.html)
+
+
+
