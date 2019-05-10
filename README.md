@@ -1,6 +1,6 @@
 # Introduction
 
-## How to use gitbook locally
+## How to run gitbook locally
 
 ```
 npm install gitbook-cli -g
